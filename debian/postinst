@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+
+# postinst script for terminai
+# called after the package is installed
+
+BIN_SRC="/usr/bin/terminai"
+ALT_SYMLINK="/usr/bin/groq_cli"
+
+case "$1" in
+  configure)
+    if [ -x "$BIN_SRC" ]; then
+      chmod 755 "$BIN_SRC" || true
+    fi
+    # Optional alternate name
+    ln -sf "$BIN_SRC" "$ALT_SYMLINK" || true
+    ;;
+esac
+
+exit 0
+
+

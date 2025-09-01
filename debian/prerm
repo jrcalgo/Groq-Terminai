@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+
+# prerm script for terminai
+# called before the package is removed
+
+ALT_SYMLINK="/usr/bin/groq_cli"
+
+case "$1" in
+  remove|deconfigure)
+    if [ -L "$ALT_SYMLINK" ]; then
+      rm -f "$ALT_SYMLINK" || true
+    fi
+    ;;
+esac
+
+exit 0
+
+

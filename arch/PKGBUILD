@@ -1,0 +1,16 @@
+pkgname=terminai
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Terminal-based Groq API CLI tool"
+arch=("any")
+url="https://example.com/terminai"
+license=("MIT")
+depends=("bash" "curl" "jq")
+install=terminai.install
+source=("groq_cli.sh")
+sha256sums=("SKIP")
+
+package() {
+  install -Dm755 "$srcdir/groq_cli.sh" "$pkgdir/usr/bin/terminai"
+}
+

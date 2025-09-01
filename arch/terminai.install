@@ -1,0 +1,13 @@
+post_install() {
+  echo "terminai installed. Try: terminai --help"
+}
+
+post_upgrade() {
+  echo "terminai upgraded."
+}
+
+post_remove() {
+  echo "terminai removed."
+}
+
+
